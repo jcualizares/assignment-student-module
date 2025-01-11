@@ -3,6 +3,8 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Student } from "./student.entity";
 import { Repository } from "typeorm";
 import { CreateStudentDto } from "./studentdto";
+=======
+import { CreateStudentDto } from "./stuedentCreate";
 
 @Injectable()
 export class studentService{
@@ -37,6 +39,7 @@ async udpate(id: number, dto: CreateStudentDto){
 }
 
   
+=======
   
 
 }
