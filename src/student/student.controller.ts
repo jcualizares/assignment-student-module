@@ -1,10 +1,10 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { studentService } from './student.service';
-import { Student } from './entities/student.entity';
 import { Get } from '@nestjs/common';
 import { Put, Param } from '@nestjs/common';
 import { Delete } from '@nestjs/common';
 import { CreateStudentDto } from './studentdto';
+import { Student } from './student.entity';
 
 @Controller('students')
 export class StudentController {
@@ -24,6 +24,9 @@ export class StudentController {
     update(@Param('id') id: number, @Body() dto: CreateStudentDto){
         return this.studentService.udpate(id, dto);
     }
-
+    @Delete(':id')
+    delete(@Param('id') id: number, @Body() dto: CreateStudentDto){
+        return this.studentService.delete(id);
+    }
 
 }
