@@ -19,9 +19,22 @@ export class studentService{
 
  //Read data
   
-  findMany(){
-    return this.studentRespository.find();
-  }
+ findMany(){
+  return this.studentRespository.find();
+}
+
+async udpate(id: number, dto: CreateStudentDto){
+    
+  const student = await this.studentRespository.findOne({where: { id }})
+  
+  //check that record exist
+
+  Object.assign(student, dto);
+
+ return await this.studentRespository.save(student);
+
+
+}
 
   
   
