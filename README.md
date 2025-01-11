@@ -30,6 +30,8 @@
 
 ```bash
 $ yarn install
+=======
+$ npm install
 ```
 
 ## Compile and run the project
@@ -43,7 +45,15 @@ $ yarn run start:dev
 
 # production mode
 $ yarn run start:prod
-```
+=======
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+
 
 ## Run tests
 
@@ -56,6 +66,14 @@ $ yarn run test:e2e
 
 # test coverage
 $ yarn run test:cov
+=======
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
 ```
 
 ## Deployment
@@ -66,6 +84,8 @@ If you are looking for a cloud-based platform to deploy your NestJS application,
 
 ```bash
 $ yarn install -g mau
+=======
+$ npm install -g mau
 $ mau deploy
 ```
 
