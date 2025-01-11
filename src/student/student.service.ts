@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Student } from "./student.entity";
 import { Repository } from "typeorm";
-import { CreateStudentDto } from "./stuedentCreate";
+import { CreateStudentDto } from "./studentdto";
 
 @Injectable()
 export class studentService{
@@ -17,7 +17,13 @@ export class studentService{
 
     }
 
- 
+ //Read data
+  
+  findMany(){
+    return this.studentRespository.find();
+  }
+
+  
   
 
 }
