@@ -13,16 +13,5 @@ export class StudentController {
     return this.studentService.create(studentData);
   }
   
-  @Get()
-    findAll(): Promise<Student[]> {
-    return this.studentService.findAll();
-}
-  @Put(':id')
-  update(@Param('id') id: number, @Body() studentData: Partial<Student>): Promise<Student> {
-    return this.studentService.update(+id, studentData);
-}
-  @Delete(':id')
-  remove(@Param('id') id: number): Promise<void> {
-    return this.studentService.remove(+id);
-}
+
 }

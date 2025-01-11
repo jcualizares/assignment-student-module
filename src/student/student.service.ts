@@ -1,31 +1,23 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Student } from './entities/student.entity';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Student } from "./student.entity";
+import { Repository } from "typeorm";
+import { CreateStudentDto } from "./stuedentCreate";
 
 @Injectable()
-export class StudentService {
-  constructor(
-    @InjectRepository(Student)
-    private readonly studentRepository: Repository<Student>,
-  ) {}
+export class studentService{
+  constructor(@InjectRepository(Student) private readonly studentRespository: Repository<Student>) 
+  {}
 
-  async create(studentData: Partial<Student>): Promise<Student> {
-    const student = this.studentRepository.create(studentData);
-    return this.studentRepository.save(student);
-  }
+  // create or post data 
+  async create(dto: CreateStudentDto){
+        const student = this.studentRespository.create(dto);
 
-  async findAll(): Promise<Student[]> {
-    return this.studentRepository.find();
-  }
+        return await this.studentRespository.save(student);
+
+    }
+
+ 
   
-  async update(id: number, studentData: Partial<Student>): Promise<Student> {
-    await this.studentRepository.update(id, studentData);
-    return this.studentRepository.findOne({ where: { id } });
-  }
-  
-  async remove(id: number): Promise<void> {
-    await this.studentRepository.delete(id);
-  }
-  
+
 }
